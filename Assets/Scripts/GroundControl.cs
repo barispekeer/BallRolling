@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class GroundControl : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int speed = 10;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        float xMouse = Input.GetAxis("Mouse X");
+        float yMouse = Input.GetAxis("Mouse Y");
+        transform.eulerAngles += new Vector3(yMouse * Time.deltaTime * speed, 0f, -xMouse * Time.deltaTime * speed);
     }
 }

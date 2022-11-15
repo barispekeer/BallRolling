@@ -20,12 +20,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = other.gameObject.transform.position;
             rigi.isKinematic = true;
-            InvokeRepeating("yokOl", 0.0f, 0.02f);
+            InvokeRepeating("yokOl", 0f, 0.02f);
         }
         else if (other.gameObject.tag.Equals("Finish"))
         {
             rigi.isKinematic = true;
             pnl.gameObject.SetActive(true);
+            InvokeRepeating("yokOl", 0f, 0.02f);
         }
     }
     void yokOl()
@@ -34,10 +35,12 @@ public class PlayerController : MonoBehaviour
         if (transform.localScale.x <= 0.0f)
         {
             pnl.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
     public void Restart()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }

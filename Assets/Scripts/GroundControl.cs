@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundControl : MonoBehaviour
 {
-    int speed = 10;
+    float speed = 30;
 
     void Start()
     {

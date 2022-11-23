@@ -34,13 +34,12 @@ public class PlayerController : MonoBehaviour
         transform.localScale -= new Vector3(yokOlHizi, yokOlHizi, yokOlHizi);
         if (transform.localScale.x <= 0.0f)
         {
+            CancelInvoke(nameof(yokOl));
             pnl.gameObject.SetActive(true);
-            Time.timeScale = 0;
         }
     }
     public void Restart()
     {
         SceneManager.LoadScene(0);
-        Time.timeScale = 1;
     }
 }
